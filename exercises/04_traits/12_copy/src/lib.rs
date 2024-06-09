@@ -3,6 +3,7 @@
 
 use std::ops::Add;
 
+#[derive(PartialEq, Debug, Clone, Copy)]
 pub struct WrappingU32 {
     value: u32,
 }
