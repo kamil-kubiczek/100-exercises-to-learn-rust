@@ -14,27 +14,27 @@ use std::ops::Add;
 #[derive(Debug, Clone, Copy, PartialEq)]
 pub struct SaturatingU16(u16);
 
-impl Into<SaturatingU16> for u16 {
-    fn into(self) -> SaturatingU16 {
-        SaturatingU16(self)
+impl From<u16> for SaturatingU16 {
+    fn from(value: u16) -> Self {
+        SaturatingU16(value)
     }
 }
 
-impl Into<SaturatingU16> for u8 {
-    fn into(self) -> SaturatingU16 {
-        SaturatingU16(self as u16)
+impl From<u8> for SaturatingU16 {
+    fn from(value: u8) -> Self {
+        SaturatingU16(value as u16)
     }
 }
 
-impl Into<SaturatingU16> for &u16 {
-    fn into(self) -> SaturatingU16 {
-        SaturatingU16(*self)
+impl From<&u16> for SaturatingU16 {
+    fn from(value: &u16) -> Self {
+        SaturatingU16(*value)
     }
 }
 
-impl Into<SaturatingU16> for &u8 {
-    fn into(self) -> SaturatingU16 {
-        SaturatingU16(*self as u16)
+impl From<&u8> for SaturatingU16 {
+    fn from(value: &u8) -> Self {
+        SaturatingU16(*value as u16)
     }
 }
 
