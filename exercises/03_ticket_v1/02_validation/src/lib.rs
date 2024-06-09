@@ -1,5 +1,3 @@
-use std::os::linux::raw::stat;
-
 struct Ticket {
     title: String,
     description: String,
