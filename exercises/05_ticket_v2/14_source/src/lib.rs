@@ -1,3 +1,5 @@
+use std::error;
+
 use crate::status::Status;
 
 // We've seen how to declare modules in one of the earliest exercises, but
@@ -13,6 +15,8 @@ mod status;
 // TODO: Add a new error variant to `TicketNewError` for when the status string is invalid.
 //   When calling `source` on an error of that variant, it should return a `ParseStatusError` rather than `None`.
 
+use status::ParseStatusError;
+
 #[derive(Debug, thiserror::Error)]
 pub enum TicketNewError {
     #[error("Title cannot be empty")]
@@ -23,6 +27,8 @@ pub enum TicketNewError {
     DescriptionCannotBeEmpty,
     #[error("Description cannot be longer than 500 bytes")]
     DescriptionTooLong,
+    #[error("{0}")]
+    InvalidStatus(#[from]ParseStatusError),
 }
 
 #[derive(Debug, PartialEq, Clone)]
