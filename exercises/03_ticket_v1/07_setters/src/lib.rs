@@ -38,11 +38,29 @@ impl Ticket {
         &self.title
     }
 
+    pub fn set_title(&mut self, new_value: String) -> &String {
+        self.title = new_value.parse().expect("lol");
+
+        &self.title
+    }
+
     pub fn description(&self) -> &String {
         &self.description
     }
 
+    pub fn set_description(&mut self, new_value: String) -> &String {
+        self.description = new_value.parse().expect("lol");
+
+        &self.description
+    }
+
     pub fn status(&self) -> &String {
+        &self.status
+    }
+
+    pub fn set_status(&mut self, new_value: String) -> &String {
+        self.status = new_value.parse().expect("err");
+
         &self.status
     }
 }
